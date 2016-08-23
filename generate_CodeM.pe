@@ -1,5 +1,7 @@
-#!/usr/bin/fontforge
+#!/usr/local/bin/fontforge
 # vim:ts=2:sw=2:tw=0
+
+width=1200
 
 Print('--------------------------------------------------')
 
@@ -13,9 +15,7 @@ Print('--------------------------------------------------')
 Print('Source Code Pro Regular の編集')
 Open('SourceCodePro-Regular.ttf')
   # 0x20(半角スペース)〜0x007e(チルダ)以外を削除
-  Select(0x0000,0x001f)
-  Clear()
-  Select(0x0080,0x010000)
+  Select(0x3000,0x9fff)
   Clear()
   # ----------
   SelectNone()
@@ -25,16 +25,14 @@ Open('SourceCodePro-Regular.ttf')
   UnlinkReference()
   ScaleToEm(750,250)
   CenterInWidth()
-Generate('tmp_scp_reg.ttf')
+  Generate('tmp_scp_reg.ttf')
 Close()
 # --------------------------------------------------
 # SourceCodePro Bold 書体の変更
 Print('Source Code Pro Bold の編集')
 Open('SourceCodePro-Bold.ttf')
   # 0x20(半角スペース)〜0x007e(チルダ)以外を削除
-  Select(0x0000,0x001f)
-  Clear()
-  Select(0x0080,0x010000)
+  Select(0x3000,0x9fff)
   Clear()
   # ----------
   SelectNone()
@@ -57,7 +55,9 @@ Close()
 Print('Migu 1M Regular の編集')
 Open('migu-1m-regular.ttf')
   # 0x20(半角スペース)〜0x007e(チルダ)を削除
-  Select(0x0020,0x007e)
+  Select(0x0000,0x2fff)
+  Clear()
+  Select(0xa000,0xffff)
   Clear()
   # ----------
   SelectNone()
@@ -66,6 +66,8 @@ Open('migu-1m-regular.ttf')
   #ClearHints()
   UnlinkReference()
   ScaleToEm(750,250)
+  Select(0x3000,0x9fff)
+  SetWidth(width)
   CenterInWidth()
 Generate('tmp_mig_1m_r.ttf')
 Close()
@@ -74,7 +76,9 @@ Close()
 Print('Migu 1M Bold の編集')
 Open('migu-1m-bold.ttf')
   # 0x20(半角スペース)〜0x007e(チルダ)を削除
-  Select(0x0020,0x007e)
+  Select(0x0000,0x2fff)
+  Clear()
+  Select(0xa000,0xffff)
   Clear()
   # ----------
   SelectNone()
@@ -83,6 +87,8 @@ Open('migu-1m-bold.ttf')
   #ClearHints()
   UnlinkReference()
   ScaleToEm(750,250)
+  Select(0x3000,0x9fff)
+  SetWidth(width)
   CenterInWidth()
 Generate('tmp_mig_1m_b.ttf')
 Close()
